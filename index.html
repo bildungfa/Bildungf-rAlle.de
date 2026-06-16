@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bildung für Alle e.V. — Togo · Westafrika</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green:      #4A7C59;
+  --green-mid:  #6B9E7A;
+  --green-light:#C8E6D0;
+  --green-pale: #EFF7F2;
+  --amber:      #D48B2E;
+  --amber-light:#F9E4B7;
+  --amber-pale: #FEF8EC;
+  --terra:      #C86B3A;
+  --terra-light:#F5C4A4;
+  --terra-pale: #FEF0E8;
+  --warm-white: #FDFAF5;
+  --ivory:      #F5F0E4;
+  --sand:       #EDE4D0;
+  --brown:      #4A3728;
+  --text:       #2C1F14;
+  --text-mid:   #6B5040;
+  --text-light: #9A7A68;
+  --serif:      'Cormorant Garamond', Georgia, serif;
+  --sans:       'DM Sans', sans-serif;
+  --ease:       cubic-bezier(0.16, 1, 0.3, 1);
+  --r:          12px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--warm-white);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+img,video{display:block;}
+a{text-decoration:none;color:inherit;}
+
+/* TYPOGRAPHY */
+h1{font-family:var(--serif);font-size:clamp(44px,7vw,88px);font-weight:500;line-height:1.0;letter-spacing:-0.02em;}
+h2{font-family:var(--serif);font-size:clamp(30px,4.5vw,58px);font-weight:400;line-height:1.1;letter-spacing:-0.01em;}
+h3{font-family:var(--serif);font-size:clamp(20px,2.5vw,30px);font-weight:400;line-height:1.2;}
+em{font-style:italic;}
+.label{font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--green);display:inline-flex;align-items:center;gap:10px;}
+.label::before{content:'';display:block;width:20px;height:2px;background:var(--green);border-radius:2px;flex-shrink:0;}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px;}
+
+/* ANIMATIONS */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.8s var(--ease),transform 0.8s var(--ease);}
+.reveal.up{opacity:1;transform:none;}
+.d1{transition-delay:0.1s;}.d2{transition-delay:0.2s;}.d3{transition-delay:0.3s;}.d4{transition-delay:0.4s;}
+
+/* ── NAVBAR ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:9000;padding:20px 0;transition:all 0.35s var(--ease);}
+.nav.solid{background:rgba(253,250,245,0.95);backdrop-filter:blur(20px);padding:14px 0;box-shadow:0 1px 0 rgba(74,60,40,0.06);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:10px;}
+.nav-logo-text .main{font-family:var(--serif);font-size:16px;font-weight:500;color:var(--warm-white);transition:color 0.3s;letter-spacing:0.01em;}
+.nav-logo-text .sub{font-size:9px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.6);transition:color 0.3s;}
+.nav.solid .nav-logo-text .main{color:var(--green);}
+.nav.solid .nav-logo-text .sub{color:var(--amber);}
+.nav-links{display:flex;gap:32px;list-style:none;align-items:center;}
+.nav-links a{font-size:12px;font-weight:500;letter-spacing:0.04em;color:rgba(255,255,255,0.7);transition:color 0.25s;}
+.nav.solid .nav-links a{color:var(--text-mid);}
+.nav-links a:hover{color:var(--amber);}
+.nav-cta{background:var(--amber)!important;color:#fff!important;padding:10px 22px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:0.06em;transition:all 0.25s!important;}
+.nav-cta:hover{background:#C07A20!important;transform:translateY(-1px);box-shadow:0 6px 20px rgba(212,139,46,0.35)!important;}
+.nav.solid .nav-cta{color:#fff!important;}
+
+/* ── HERO ── */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;}
+.hero-video{position:absolute;inset:0;z-index:0;}
+.hero-video video{width:100%;height:100%;object-fit:cover;}
+.hero-overlay{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(0deg,rgba(15,30,20,0.88) 0%,rgba(15,30,20,0.4) 50%,rgba(15,30,20,0.2) 100%);}
+.hero-content{position:relative;z-index:2;padding:0 0 0;}
+.hero-text{padding-bottom:28px;}
+.hero-label{display:flex;align-items:center;gap:10px;margin-bottom:20px;font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.65);}
+.hero-label-dot{width:6px;height:6px;border-radius:50%;background:var(--amber);flex-shrink:0;}
+.hero h1{color:#fff;margin-bottom:16px;}
+.hero h1 em{color:var(--amber-light);}
+.hero-sub{font-family:var(--serif);font-size:clamp(16px,2vw,20px);font-style:italic;color:rgba(255,255,255,0.65);max-width:500px;line-height:1.65;margin-bottom:36px;font-weight:300;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px;}
+.btn-amber{display:inline-flex;align-items:center;gap:9px;background:var(--amber);color:#fff;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:15px 30px;border-radius:100px;border:none;cursor:pointer;transition:all 0.25s;white-space:nowrap;}
+.btn-amber:hover{background:#C07A20;transform:translateY(-2px);box-shadow:0 10px 30px rgba(212,139,46,0.4);}
+.btn-ghost-white{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,0.12);color:#fff;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:15px 30px;border-radius:100px;border:1px solid rgba(255,255,255,0.3);cursor:pointer;transition:all 0.25s;white-space:nowrap;backdrop-filter:blur(8px);}
+.btn-ghost-white:hover{background:rgba(255,255,255,0.2);border-color:rgba(255,255,255,0.6);}
+/* Stats bar */
+.hero-stats{position:relative;z-index:2;background:rgba(255,255,255,0.1);backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.15);}
+.hero-stats-inner{display:flex;justify-content:space-between;}
+.h-stat{flex:1;padding:18px 20px;text-align:center;border-right:1px solid rgba(255,255,255,0.1);}
+.h-stat:last-child{border-right:none;}
+.h-stat-n{font-family:var(--serif);font-size:clamp(20px,2.5vw,28px);font-weight:500;color:#fff;display:block;line-height:1;margin-bottom:3px;}
+.h-stat-l{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);}
+
+/* ── TICKER ── */
+.ticker{background:var(--green);padding:12px 0;overflow:hidden;}
+.ticker-track{display:flex;gap:56px;width:max-content;animation:tick 28s linear infinite;font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.75);white-space:nowrap;}
+.ticker-dot{color:rgba(255,255,255,0.4);}
+@keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ── CHAPTERS — FULLSCREEN ── */
+.chapter{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;}
+.chapter-media{position:absolute;inset:0;z-index:0;}
+.chapter-media video{width:100%;height:100%;object-fit:cover;}
+.chapter-media-img{width:100%;height:100%;background-size:cover;background-position:center;}
+.chapter-overlay-warm{position:absolute;inset:0;z-index:1;}
+.chapter-inner{position:relative;z-index:2;padding:0 0 60px;}
+.ch-tag{display:inline-flex;align-items:center;gap:12px;margin-bottom:16px;font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--amber-light);}
+.ch-tag::before{content:'';width:28px;height:1.5px;background:var(--amber-light);flex-shrink:0;}
+.ch-title{font-family:var(--serif);font-size:clamp(34px,5.5vw,68px);font-weight:400;color:#fff;line-height:1.05;margin-bottom:16px;letter-spacing:-0.015em;}
+.ch-title em{font-style:italic;color:var(--amber-light);}
+.ch-body{font-size:15px;color:rgba(255,255,255,0.65);font-weight:300;line-height:1.85;max-width:540px;margin-bottom:28px;}
+.ch-stats{display:flex;gap:32px;flex-wrap:wrap;}
+.ch-sn{font-family:var(--serif);font-size:clamp(28px,3.5vw,42px);font-weight:400;color:var(--amber-light);line-height:1;display:block;}
+.ch-sl{font-size:9px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:4px;}
+/* Chapter number bg */
+.ch-num{position:absolute;right:32px;bottom:40px;font-family:var(--serif);font-size:clamp(100px,20vw,200px);font-weight:400;color:rgba(255,255,255,0.04);line-height:1;pointer-events:none;user-select:none;z-index:1;}
+
+/* ── STORY INTRO ── */
+.story-intro{background:var(--green-pale);padding:100px 0;text-align:center;border-bottom:2px solid var(--green-light);}
+.story-intro h2{color:var(--text);margin-bottom:16px;}
+.story-intro h2 em{color:var(--green);}
+.story-intro p{font-family:var(--serif);font-size:clamp(16px,2vw,20px);font-style:italic;color:var(--text-mid);max-width:560px;margin:0 auto;line-height:1.7;font-weight:300;}
+
+/* ── IMPACT NUMBERS ── */
+.impact-numbers{background:var(--ivory);padding:100px 0;border-top:1px solid var(--sand);border-bottom:1px solid var(--sand);}
+.in-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;flex-wrap:wrap;gap:20px;}
+.in-head h2{color:var(--text);}
+.in-head h2 em{color:var(--green);}
+.in-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.in-card{background:var(--warm-white);border:1.5px solid var(--sand);border-radius:var(--r);padding:36px 28px;transition:border-color 0.3s,transform 0.3s,box-shadow 0.3s;}
+.in-card:hover{border-color:var(--green-light);transform:translateY(-4px);box-shadow:0 12px 40px rgba(74,124,89,0.1);}
+.in-n{font-family:var(--serif);font-size:clamp(36px,4vw,52px);font-weight:400;color:var(--green);display:block;margin-bottom:8px;line-height:1;}
+.in-l{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-light);margin-bottom:10px;}
+.in-d{font-size:13px;color:var(--text-mid);line-height:1.65;font-weight:300;}
+
+/* ── VIDEO SECTION ── */
+.video-section{background:var(--warm-white);padding:100px 0;}
+.video-section-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:16px;}
+.video-section-head h2 em{color:var(--amber);}
+.vtabs-nav{display:flex;gap:0;background:var(--ivory);border:1.5px solid var(--sand);border-radius:100px;overflow:hidden;padding:4px;margin-bottom:36px;width:fit-content;}
+.vtab-btn{padding:10px 22px;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-light);background:transparent;border:none;border-radius:100px;cursor:pointer;transition:all 0.25s;white-space:nowrap;}
+.vtab-btn.on{background:var(--green);color:#fff;box-shadow:0 4px 14px rgba(74,124,89,0.25);}
+.vtab-btn:hover:not(.on){color:var(--green);}
+.vtab-content{display:none;}
+.vtab-content.on{display:block;}
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.vgrid-big{grid-template-columns:1.6fr 1fr 1fr;}
+.vcard{position:relative;border-radius:var(--r);overflow:hidden;background:var(--sand);aspect-ratio:9/16;max-height:400px;}
+.vcard-lg{max-height:none;aspect-ratio:9/14;}
+.vcard video{width:100%;height:100%;object-fit:cover;display:block;}
+.vcard-overlay{position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,10,5,0.8) 0%,transparent 55%);padding:18px;display:flex;flex-direction:column;justify-content:flex-end;}
+.vcard-lbl{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,230,150,0.9);margin-bottom:5px;}
+.vcard-title{font-family:var(--serif);font-size:14px;font-style:italic;color:#fff;line-height:1.3;}
+
+/* ── PHOTO GALLERY ── */
+.gallery{background:var(--sand);padding:100px 0;}
+.gallery h2 em{color:var(--terra);}
+.photo-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:240px;gap:8px;margin-top:52px;}
+.photo-item{border-radius:10px;overflow:hidden;position:relative;cursor:pointer;}
+.photo-item:nth-child(1){grid-column:span 2;grid-row:span 2;}
+.photo-item:nth-child(6){grid-column:span 2;}
+.photo-img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s var(--ease);}
+.photo-item:hover .photo-img{transform:scale(1.07);}
+.photo-cap{position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,10,5,0.65) 0%,transparent 50%);opacity:0;transition:opacity 0.35s;display:flex;align-items:flex-end;padding:16px;}
+.photo-item:hover .photo-cap{opacity:1;}
+.photo-cap span{font-family:var(--serif);font-size:13px;font-style:italic;color:#fff;}
+
+/* ── DREAMS ── */
+.dreams{background:var(--amber-pale);padding:100px 0;}
+.dreams h2{color:var(--text);}
+.dreams h2 em{color:var(--amber);}
+.dreams-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px;}
+.dream-card{background:var(--warm-white);border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(74,55,40,0.06);transition:transform 0.3s var(--ease),box-shadow 0.3s;}
+.dream-card:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(74,55,40,0.12);}
+.dream-vid{aspect-ratio:9/14;max-height:320px;overflow:hidden;position:relative;}
+.dream-vid video{width:100%;height:100%;object-fit:cover;display:block;}
+.dream-vid-over{position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,10,5,0.7) 0%,transparent 55%);}
+.dream-body{padding:22px 24px 26px;}
+.dream-icon{font-size:26px;margin-bottom:10px;}
+.dream-q{font-family:var(--serif);font-size:17px;font-style:italic;color:var(--text);line-height:1.55;margin-bottom:10px;}
+.dream-who{font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);}
+
+/* ── MISSION ── */
+.mission{background:var(--warm-white);padding:120px 0;}
+.mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.mission-media{position:relative;}
+.mission-vid-main{width:100%;aspect-ratio:4/5;border-radius:20px;overflow:hidden;position:relative;}
+.mission-vid-main video{width:100%;height:100%;object-fit:cover;display:block;}
+.mission-vid-main img{width:100%;height:100%;object-fit:cover;}
+.mission-badge{position:absolute;top:24px;left:-20px;background:var(--amber);color:#fff;padding:16px 20px;border-radius:12px;box-shadow:0 8px 24px rgba(212,139,46,0.35);}
+.mission-badge-n{font-family:var(--serif);font-size:26px;font-weight:500;line-height:1;display:block;}
+.mission-badge-l{font-size:9px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-top:3px;opacity:0.85;}
+.mission-vid-small{position:absolute;bottom:-28px;right:-20px;width:42%;aspect-ratio:1;border-radius:14px;overflow:hidden;border:4px solid var(--warm-white);box-shadow:0 8px 24px rgba(74,55,40,0.15);}
+.mission-vid-small img,.mission-vid-small video{width:100%;height:100%;object-fit:cover;display:block;}
+.mission-text h2{color:var(--text);margin-bottom:20px;}
+.mission-text h2 em{color:var(--green);}
+.mission-text p{font-size:15px;color:var(--text-mid);line-height:1.85;font-weight:300;margin-bottom:14px;}
+.mission-quote{border-left:3px solid var(--green);padding:8px 0 8px 20px;margin:28px 0;}
+.mission-quote p{font-family:var(--serif);font-size:18px;font-style:italic;color:var(--text);line-height:1.5;}
+.mission-quote cite{display:block;margin-top:8px;font-size:10px;font-style:normal;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);}
+
+/* ── TEAM ── */
+.team{background:var(--green-pale);padding:100px 0;}
+.team h2{color:var(--text);}
+.team h2 em{color:var(--green);}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px;}
+.team-card{background:var(--warm-white);border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(74,55,40,0.06);transition:transform 0.3s,box-shadow 0.3s;}
+.team-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(74,55,40,0.12);}
+.team-photo{width:100%;aspect-ratio:1;background-size:cover;background-position:center top;}
+.team-emoji{width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:56px;background:var(--green-pale);}
+.team-body{padding:20px 22px 24px;}
+.team-name{font-family:var(--serif);font-size:21px;font-weight:500;color:var(--text);margin-bottom:3px;}
+.team-role{font-size:9px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);margin-bottom:12px;}
+.team-q{font-family:var(--serif);font-size:13px;font-style:italic;color:var(--text-mid);line-height:1.6;padding-top:12px;border-top:1px solid var(--sand);}
+
+/* ── VISION ── */
+.vision{background:var(--warm-white);padding:100px 0;}
+.vision h2{color:var(--text);text-align:center;margin-bottom:14px;}
+.vision h2 em{color:var(--green);}
+.vision-sub{font-family:var(--serif);font-size:clamp(16px,2vw,19px);font-style:italic;color:var(--text-mid);max-width:540px;margin:0 auto 64px;text-align:center;line-height:1.7;font-weight:300;}
+.vision-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.vision-card{background:var(--green-pale);border:1.5px solid var(--green-light);border-radius:16px;padding:32px 28px;transition:all 0.3s;}
+.vision-card:hover{border-color:var(--green);background:#fff;transform:translateY(-3px);box-shadow:0 10px 32px rgba(74,124,89,0.1);}
+.vision-icon{font-size:30px;margin-bottom:14px;}
+.vision-title{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--text);margin-bottom:9px;}
+.vision-text{font-size:13px;color:var(--text-mid);line-height:1.7;font-weight:300;}
+
+/* ── DONATION ── */
+.donation{background:var(--green);padding:100px 0;position:relative;overflow:hidden;}
+.donation::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 10% 50%,rgba(255,255,255,0.06) 0%,transparent 60%),radial-gradient(ellipse at 90% 50%,rgba(255,200,100,0.08) 0%,transparent 60%);}
+.donation-inner{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.donation h2{color:#fff;margin-bottom:16px;}
+.donation h2 em{color:var(--amber-light);font-style:italic;}
+.donation-left p{font-size:15px;color:rgba(255,255,255,0.7);line-height:1.85;font-weight:300;margin-bottom:32px;}
+.il-list{list-style:none;margin-bottom:28px;}
+.il{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.12);}
+.il:first-child{border-top:1px solid rgba(255,255,255,0.12);}
+.il-icon{width:36px;height:36px;flex-shrink:0;background:rgba(255,255,255,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;}
+.il-amt{font-family:var(--serif);font-size:21px;font-weight:500;color:var(--amber-light);display:block;line-height:1;}
+.il-txt{font-size:12px;color:rgba(255,255,255,0.6);font-weight:300;}
+/* Card */
+.don-card{background:var(--warm-white);border-radius:20px;padding:36px;box-shadow:0 8px 40px rgba(0,0,0,0.15);position:sticky;top:90px;}
+.d-lbl{font-size:9px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-light);display:block;margin-bottom:10px;}
+.amt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px;}
+.amt{border:1.5px solid var(--sand);border-radius:10px;padding:12px 6px;text-align:center;cursor:pointer;transition:all 0.2s;background:#fff;font-family:var(--sans);}
+.amt:hover,.amt.sel{border-color:var(--amber);background:var(--amber-pale);}
+.amt .an{display:block;font-family:var(--serif);font-size:19px;font-weight:500;color:var(--text);line-height:1;}
+.amt.sel .an{color:var(--amber);}
+.amt .al{display:block;font-size:9px;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-light);margin-top:3px;}
+.cust-row{display:flex;border:1.5px solid var(--sand);border-radius:10px;overflow:hidden;margin-bottom:20px;}
+.cust-pre{padding:12px 14px;background:var(--ivory);font-family:var(--serif);font-size:15px;color:var(--text-light);border-right:1px solid var(--sand);}
+.cust-input{flex:1;padding:12px 14px;border:none;outline:none;font-size:14px;font-family:var(--sans);color:var(--text);background:transparent;}
+.don-btns{display:flex;flex-direction:column;gap:10px;}
+.don-btn{width:100%;padding:15px;border:none;border-radius:100px;cursor:pointer;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;transition:all 0.25s;display:flex;align-items:center;justify-content:center;gap:10px;}
+.don-pp{background:#003087;color:#fff;}
+.don-pp:hover{background:#001e5e;transform:translateY(-1px);}
+.don-iban{background:var(--text);color:#fff;}
+.don-iban:hover{background:#3a2a1a;transform:translateY(-1px);}
+.don-trust{display:flex;align-items:center;justify-content:center;gap:6px;font-size:10px;color:var(--text-light);margin-top:12px;}
+
+/* ── SATZUNG ── */
+.satzung{background:var(--ivory);padding:56px 0;border-top:1px solid var(--sand);border-bottom:1px solid var(--sand);}
+.satz-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.satz-left{display:flex;align-items:center;gap:16px;}
+.satz-icon{width:48px;height:48px;background:var(--amber-pale);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.satz-title{font-family:var(--serif);font-size:18px;color:var(--text);margin-bottom:3px;}
+.satz-desc{font-size:12px;color:var(--text-light);}
+
+/* ── FINAL CTA ── */
+.final-cta{background:var(--amber);padding:100px 0;text-align:center;position:relative;overflow:hidden;}
+.final-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.08) 0%,transparent 100%);}
+.final-cta-inner{position:relative;z-index:1;}
+.final-cta h2{color:#fff;margin-bottom:14px;}
+.final-cta h2 em{font-style:italic;color:rgba(255,255,255,0.8);}
+.final-cta p{font-family:var(--serif);font-size:clamp(16px,2vw,19px);font-style:italic;color:rgba(255,255,255,0.75);max-width:460px;margin:0 auto 36px;line-height:1.65;font-weight:300;}
+.final-cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-white{display:inline-flex;align-items:center;gap:9px;background:#fff;color:var(--amber);font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:15px 30px;border-radius:100px;border:none;cursor:pointer;transition:all 0.25s;white-space:nowrap;}
+.btn-white:hover{background:var(--amber-pale);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.15);}
+.btn-ghost-amber{display:inline-flex;align-items:center;gap:9px;background:transparent;color:#fff;font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;padding:15px 30px;border-radius:100px;border:1.5px solid rgba(255,255,255,0.5);cursor:pointer;transition:all 0.25s;white-space:nowrap;}
+.btn-ghost-amber:hover{background:rgba(255,255,255,0.15);border-color:#fff;}
+
+/* ── FOOTER ── */
+footer{background:var(--brown);padding:64px 0 32px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:48px;}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,0.3);line-height:1.7;max-width:210px;margin-top:12px;font-weight:300;}
+.footer-soc{display:flex;gap:8px;margin-top:16px;}
+.footer-soc a{display:flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;color:rgba(255,255,255,0.35);font-size:10px;font-weight:600;text-decoration:none;transition:all 0.2s;}
+.footer-soc a:hover{border-color:var(--amber);color:var(--amber);}
+.fc-title{font-size:9px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.22);margin-bottom:14px;}
+.fc ul{list-style:none;}
+.fc li{margin-bottom:8px;}
+.fc a{font-size:13px;color:rgba(255,255,255,0.38);text-decoration:none;font-weight:300;transition:color 0.2s;}
+.fc a:hover{color:var(--amber);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-legal{font-size:11px;color:rgba(255,255,255,0.15);}
+.footer-links{display:flex;gap:18px;}
+.footer-links a{font-size:11px;color:rgba(255,255,255,0.15);text-decoration:none;}
+.footer-links a:hover{color:rgba(255,255,255,0.45);}
+.footer-reg{font-size:10px;color:rgba(255,255,255,0.08);text-align:center;margin-top:14px;}
+
+/* ── MODAL ── */
+.modal-bg{position:fixed;inset:0;z-index:99999;background:rgba(44,31,20,0.75);backdrop-filter:blur(16px);display:none;align-items:center;justify-content:center;}
+.modal-bg.open{display:flex;}
+.modal-box{background:var(--warm-white);border-radius:24px;padding:44px;max-width:460px;width:92%;position:relative;box-shadow:0 32px 80px rgba(44,31,20,0.25);}
+.modal-x{position:absolute;top:16px;right:16px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-light);transition:color 0.2s;}
+.modal-x:hover{color:var(--text);}
+.modal-box h3{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--text);margin-bottom:22px;}
+.iban-block{background:var(--green-pale);border:1.5px solid var(--green-light);border-radius:14px;padding:22px;text-align:center;margin-bottom:12px;}
+.iban-lbl{font-size:9px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);margin-bottom:7px;}
+.iban-num{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--text);letter-spacing:0.03em;}
+.iban-who{font-size:12px;color:var(--text-light);margin-top:4px;}
+.copy-btn{background:var(--green);color:#fff;border:none;border-radius:100px;padding:9px 20px;font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;margin-top:12px;transition:background 0.2s;}
+.copy-btn:hover{background:var(--green-mid);}
+.pp-block{background:#003087;border-radius:14px;padding:18px;text-align:center;color:#fff;font-size:15px;font-weight:600;margin-top:10px;}
+.modal-trust{margin-top:14px;padding:12px;background:var(--green-pale);border-radius:10px;font-size:11px;color:var(--text-mid);text-align:center;line-height:1.6;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .nav-links{display:none;}
+  .hero-stats .h-stat-l{display:none;}
+  .mission-grid,.donation-inner{grid-template-columns:1fr;gap:48px;}
+  .mission-badge{display:none;}
+  .in-grid{grid-template-columns:1fr 1fr;}
+  .vgrid,.vgrid-big{grid-template-columns:1fr 1fr;}
+  .photo-grid{grid-template-columns:1fr 1fr;grid-auto-rows:180px;}
+  .photo-item:nth-child(1){grid-column:span 1;grid-row:span 1;}
+  .photo-item:nth-child(6){grid-column:span 1;}
+  .dreams-grid{grid-template-columns:1fr;}
+  .team-grid{grid-template-columns:1fr 1fr;}
+  .vision-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .footer-bottom{flex-direction:column;gap:10px;text-align:center;}
+  .satz-inner{flex-direction:column;text-align:center;}
+  .ch-num{display:none;}
+}
+@media(max-width:580px){
+  .wrap{padding:0 18px;}
+  .in-grid{grid-template-columns:1fr;}
+  .vgrid,.vgrid-big{grid-template-columns:1fr;}
+  .team-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .amt-grid{grid-template-columns:1fr 1fr;}
+  .photo-grid{grid-template-columns:1fr 1fr;}
+  .hero-stats-inner{flex-wrap:wrap;}
+}
+
+@keyframes kenBurns {
+  from { transform: scale(1.0); }
+  to   { transform: scale(1.1); }
+}
+@keyframes kenBurns2 {
+  from { transform: scale(1.08) translateX(-2%); }
+  to   { transform: scale(1.0) translateX(2%); }
+}
+
+/* ── NEW DONATION CARDS ── */
+.don-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.don-card-new {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s, background 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+.don-card-new:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.1);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.3);
+}
+.don-card-featured {
+  border-color: var(--amber) !important;
+  background: rgba(212,139,46,0.08) !important;
+  box-shadow: 0 0 0 1px var(--amber), 0 8px 32px rgba(212,139,46,0.2);
+}
+.don-card-featured:hover {
+  box-shadow: 0 0 0 1px var(--amber-light), 0 24px 56px rgba(212,139,46,0.3) !important;
+}
+.don-card-wide {
+  grid-column: span 2;
+}
+.don-card-wide .don-card-img {
+  max-height: 280px;
+}
+.don-card-featured-label {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  background: var(--amber);
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+.don-card-img {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.don-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.don-card-new:hover .don-card-img img {
+  transform: scale(1.06);
+}
+.don-card-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(10,8,6,0.6) 0%, transparent 60%);
+}
+.don-card-badge {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 8px;
+}
+.don-badge-gold {
+  background: var(--amber) !important;
+  border-color: var(--amber-light) !important;
+  color: #fff !important;
+}
+.don-card-body {
+  padding: 18px 20px 22px;
+}
+.don-card-tag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green-mid);
+  margin-bottom: 8px;
+}
+.don-card-title {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--warm-white);
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+.don-card-sub {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+.don-card-btn {
+  width: 100%;
+  padding: 11px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 100px;
+  color: var(--warm-white);
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+.don-card-btn:hover {
+  background: rgba(255,255,255,0.16);
+  border-color: rgba(255,255,255,0.35);
+}
+.don-btn-gold {
+  background: var(--amber) !important;
+  border-color: var(--amber) !important;
+  color: #fff !important;
+}
+.don-btn-gold:hover {
+  background: #C07A20 !important;
+}
+.don-bottom {
+  text-align: center;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.don-bottom-trust {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.don-bottom-btns {
+  display: flex;
+  justify-content: center;
+}
+@media(max-width:900px){
+  .don-cards-grid { grid-template-columns: 1fr 1fr; }
+  .don-card-wide { grid-column: span 2; }
+}
+@media(max-width:580px){
+  .don-cards-grid { grid-template-columns: 1fr; }
+  .don-card-wide { grid-column: span 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="#top" class="nav-logo">
+        <svg width="34" height="34" viewBox="0 0 40 40" fill="none">
+          <path d="M4 26C4 26 12 22 20 24C28 22 36 26 36 26L36 34C36 34 28 30 20 32C12 30 4 34 4 34Z" fill="#6B9E7A" stroke="#C8E6D0" stroke-width="0.8"/>
+          <rect x="13" y="14" width="14" height="10" rx="1" fill="#D4823E" stroke="#F9E4B7" stroke-width="0.8"/>
+          <line x1="13" y1="18" x2="27" y2="18" stroke="#F9E4B7" stroke-width="0.7"/>
+          <line x1="20" y1="14" x2="20" y2="24" stroke="#F9E4B7" stroke-width="0.7"/>
+          <rect x="15" y="7" width="10" height="8" rx="1" fill="none" stroke="#F9E4B7" stroke-width="1"/>
+          <line x1="12" y1="7" x2="28" y2="7" stroke="#F9E4B7" stroke-width="1"/>
+          <ellipse cx="20" cy="12" rx="2" ry="2.5" fill="#6B9E7A"/>
+        </svg>
+        <div class="nav-logo-text">
+          <div class="main">Bildung für Alle</div>
+          <div class="sub">e.V. · Solingen</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#geschichte">Geschichte</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#galerie">Galerie</a></li>
+        <li><a href="#vision">Vision</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#spenden" onclick="openModal()" class="nav-cta">❤ Spenden</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-video">
+    <video autoplay muted loop playsinline preload="auto" poster="https://i.imgur.com/IUSST7K.jpeg"
+      style="width:100%;height:100%;object-fit:cover;display:block;">
+      <source src="https://res.cloudinary.com/djtsvmhxv/video/upload/IMG_6201_f2jurr" type="video/mp4">
+      <img src="https://i.imgur.com/IUSST7K.jpeg" style="width:100%;height:100%;object-fit:cover;">
+    </video>
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="wrap">
+      <div class="hero-text">
+        <div class="hero-label">
+          <div class="hero-label-dot"></div>
+          Togo · Westafrika · Seit 2023 · e.V. seit 2025
+        </div>
+        <h1>Bildung<br>verändert<br><em>alles.</em></h1>
+        <p class="hero-sub">Gemeinsam geben wir Kindern in Togo eine Zukunft — mit Herz, Einsatz und echter Wirkung.</p>
+        <div class="hero-btns">
+          <button class="btn-amber" onclick="openModal()">❤ Jetzt helfen</button>
+          <button class="btn-ghost-white" onclick="document.getElementById('geschichte').scrollIntoView({behavior:'smooth'})">▶ Unsere Geschichte</button>
+        </div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="wrap">
+        <div class="hero-stats-inner">
+          <div class="h-stat"><span class="h-stat-n">3.000+</span><span class="h-stat-l">Kinder erreicht</span></div>
+          <div class="h-stat"><span class="h-stat-n">20</span><span class="h-stat-l">Schulen</span></div>
+          <div class="h-stat"><span class="h-stat-n">94%</span><span class="h-stat-l">Direkter Impact</span></div>
+          <div class="h-stat"><span class="h-stat-n">2023</span><span class="h-stat-l">Aktiv seit</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Über 3.000 Kinder mit Schulkits versorgt</span><span class="ticker-dot">✦</span>
+    <span>20 Schulen · 10 aktiv unterstützt</span><span class="ticker-dot">✦</span>
+    <span>94% direkter Impact</span><span class="ticker-dot">✦</span>
+    <span>3 Waisenhäuser ausgestattet</span><span class="ticker-dot">✦</span>
+    <span>1 Spielplatz gebaut</span><span class="ticker-dot">✦</span>
+    <span>e.V. eingetragen seit 28.04.2025</span><span class="ticker-dot">✦</span>
+    <span>Über 3.000 Kinder mit Schulkits versorgt</span><span class="ticker-dot">✦</span>
+    <span>20 Schulen · 10 aktiv unterstützt</span><span class="ticker-dot">✦</span>
+    <span>94% direkter Impact</span><span class="ticker-dot">✦</span>
+    <span>3 Waisenhäuser ausgestattet</span><span class="ticker-dot">✦</span>
+    <span>1 Spielplatz gebaut</span><span class="ticker-dot">✦</span>
+    <span>e.V. eingetragen seit 28.04.2025</span><span class="ticker-dot">✦</span>
+  </div>
+</div>
+
+<!-- STORY INTRO -->
+<section class="story-intro" id="geschichte">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="label" style="margin-bottom:18px;color:var(--green)">Unsere Geschichte · 2023–2025</span>
+      <h2 style="margin-bottom:18px">Von einem kleinen Zimmer<br>zu <em>tausenden Kindern.</em></h2>
+      <p>Eine Reise durch drei Jahre Herzblut, Wachstum und echten Impact — direkt aus Togo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 1 — 2023 DER ANFANG -->
+<section class="chapter">
+  <div class="chapter-media">
+    <img src="https://res.cloudinary.com/djtsvmhxv/image/upload/v1780342157/IMG_8203_nu6gge.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" alt="2023">
+  </div>
+  <div class="chapter-overlay-warm" style="background:linear-gradient(0deg,rgba(15,25,10,0.92) 0%,rgba(15,25,10,0.35) 55%,rgba(15,25,10,0.3) 100%)"></div>
+  <div class="ch-num">01</div>
+  <div class="wrap">
+    <div class="chapter-inner reveal">
+      <div class="ch-tag">Kapitel 1 · 2023 · Der Anfang</div>
+      <div class="ch-title">Ein kleines Zimmer.<br>Paar Bücher. <em>Ein Traum.</em></div>
+      <p class="ch-body">Alles begann mit einem Urlaub in Togo. Wir sahen Kinder ohne Hefte, Stifte und Schultaschen — und wussten: Wir können nicht untätig bleiben. Was mit einem Koffer voller Schulbücher begann, sollte eine Bewegung werden.</p>
+      <div class="ch-stats">
+        <div><span class="ch-sn">1</span><span class="ch-sl">Erster Schulbesuch</span></div>
+        <div><span class="ch-sn">💛</span><span class="ch-sl">Unendlich Motivation</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 2 — 2023 ERSTE SCHULEN -->
+<section class="chapter">
+  <div class="chapter-media">
+    <video autoplay muted loop playsinline preload="auto" poster="https://i.imgur.com/Vl4s847.jpeg" style="width:100%;height:100%;object-fit:cover;display:block;">
+      <source src="https://res.cloudinary.com/djtsvmhxv/video/upload/b853ae4af3794652ae50d3b66490ca9a_caikck" type="video/mp4">
+    </video>
+  </div>
+  <div class="chapter-overlay-warm" style="background:linear-gradient(0deg,rgba(15,25,10,0.92) 0%,rgba(15,25,10,0.25) 55%,rgba(15,25,10,0.3) 100%)"></div>
+  <div class="ch-num">02</div>
+  <div class="wrap">
+    <div class="chapter-inner reveal">
+      <div class="ch-tag">Kapitel 2 · 2023 · Erste Schulen</div>
+      <div class="ch-title">Erste Kinder.<br><em>Erste Freude.</em></div>
+      <p class="ch-body">Die ersten Schulbesuche zeigten uns wie groß die Not ist — und wie groß die Freude der Kinder wenn sie Schulmaterial bekommen. Dieses Lächeln hat uns für immer verändert. Wir sind auf dem richtigen Weg.</p>
+      <div class="ch-stats">
+        <div><span class="ch-sn">2–5</span><span class="ch-sl">Erste Schulen</span></div>
+        <div><span class="ch-sn">🌱</span><span class="ch-sl">Wachstum beginnt</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 3 — 2024 DURCHBRUCH -->
+<section class="chapter">
+  <div class="chapter-media">
+    <div style="width:100%;height:100%;background-image:url('https://i.imgur.com/0IpH9l9.jpeg');background-size:cover;background-position:center;animation:kenBurns 16s ease-out infinite alternate;"></div>
+  </div>
+  <div class="chapter-overlay-warm" style="background:linear-gradient(0deg,rgba(15,25,10,0.92) 0%,rgba(15,25,10,0.25) 55%,rgba(15,25,10,0.3) 100%)"></div>
+  <div class="ch-num">03</div>
+  <div class="wrap">
+    <div class="chapter-inner reveal">
+      <div class="ch-tag">Kapitel 3 · 2024 · Der Durchbruch</div>
+      <div class="ch-title">Tausende Kinder.<br><em>Echter Impact.</em></div>
+      <p class="ch-body">2024 der Durchbruch. Autos vollgepackt mit Schultaschen. 10 Schulen besucht. Über 2.000 Kinder vollständig versorgt. Was unmöglich schien, wurde Realität — durch Zusammenhalt und Herzblut.</p>
+      <div class="ch-stats">
+        <div><span class="ch-sn">2.000+</span><span class="ch-sl">Kinder versorgt</span></div>
+        <div><span class="ch-sn">10</span><span class="ch-sl">Schulen besucht</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 4 — 2025 SPIELPLATZ & e.V. -->
+<section class="chapter">
+  <div class="chapter-media">
+    <video autoplay muted loop playsinline preload="auto" poster="https://i.imgur.com/fCeOVUP.jpeg" style="width:100%;height:100%;object-fit:cover;display:block;">
+      <source src="https://res.cloudinary.com/djtsvmhxv/video/upload/IMG_4223_qm6kvj" type="video/mp4">
+    </video>
+  </div>
+  <div class="chapter-overlay-warm" style="background:linear-gradient(0deg,rgba(20,12,5,0.92) 0%,rgba(20,12,5,0.25) 55%,rgba(20,12,5,0.3) 100%)"></div>
+  <div class="ch-num">04</div>
+  <div class="wrap">
+    <div class="chapter-inner reveal">
+      <div class="ch-tag">Kapitel 4 · 2025 · Liebe & Erbe</div>
+      <div class="ch-title">Ein Spielplatz.<br><em>Ein Erbe. e.V. offiziell.</em></div>
+      <p class="ch-body">Ein Spielplatz wird gebaut — in liebevoller Erinnerung an unseren Freund und Angehörigen <strong style="color:var(--amber-light)">Sebastian</strong>. Kinder spielen, lachen, leben. 3 Waisenhäuser werden ausgestattet. Und am 28. April 2025 werden wir offiziell als e.V. eingetragen.</p>
+      <div class="ch-stats">
+        <div><span class="ch-sn">1</span><span class="ch-sl">Spielplatz für Sebastian</span></div>
+        <div><span class="ch-sn">3</span><span class="ch-sl">Waisenhäuser</span></div>
+        <div><span class="ch-sn">e.V.</span><span class="ch-sl">Seit 28.04.2025</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT NUMBERS -->
+<section class="impact-numbers" id="wirkung">
+  <div class="wrap">
+    <div class="in-head reveal">
+      <div>
+        <span class="label" style="margin-bottom:12px">Unsere Wirkung · 2023–2025</span>
+        <h2>Zahlen, die <em>zählen.</em></h2>
+      </div>
+    </div>
+    <div class="in-grid">
+      <div class="in-card reveal"><span class="in-n" data-t="3000" data-s="+">0</span><div class="in-l">Kinder versorgt</div><p class="in-d">Mit vollständigen Schulkits für das ganze Jahr</p></div>
+      <div class="in-card reveal d1"><span class="in-n" data-t="20">0</span><div class="in-l">Schulen erreicht</div><p class="in-d">10 aktiv unterstützt, 20 insgesamt besucht</p></div>
+      <div class="in-card reveal d2"><span class="in-n" data-t="94" data-s="%">0%</span><div class="in-l">Direkter Impact</div><p class="in-d">Jeder Euro fließt direkt zu den Kindern</p></div>
+      <div class="in-card reveal d3"><span class="in-n" data-t="3">0</span><div class="in-l">Waisenhäuser</div><p class="in-d">Vollständig ausgestattet · 1 mit Klassenräumen</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="video-section" id="videos">
+  <div class="wrap">
+    <div class="video-section-head reveal">
+      <div>
+        <span class="label" style="margin-bottom:12px;color:var(--amber)">Echte Videos · Echter Impact</span>
+        <h2>Alle unsere <em>Videos.</em></h2>
+      </div>
+    </div>
+        <!-- MISSION -->
+    <div class="vtab-content on" id="vm">
+      <div class="vgrid vgrid-big">
+        <div class="vcard vcard-lg">
+          <div style="width:100%;height:100%;background-image:url('https://i.imgur.com/IUSST7K.jpeg');background-size:cover;background-position:center;animation:kenBurns 10s ease-out infinite alternate;">
+          <div class="vcard-overlay"><div class="vcard-lbl">Mission</div><div class="vcard-title">Unsere Arbeit vor Ort</div></div>
+        </div>
+        <div class="vcard"><div style="width:100%;height:100%;background-image:url('https://i.imgur.com/Vl4s847.jpeg');background-size:cover;background-position:center;animation:kenBurns 10s ease-out infinite alternate;"><div class="vcard-overlay"><div class="vcard-lbl">Wirkung</div><div class="vcard-title">Kinder und ihre Träume</div></div></div>
+        <div class="vcard"><div style="width:100%;height:100%;background-image:url('https://i.imgur.com/YmDME5Y.jpeg');background-size:cover;background-position:center;animation:kenBurns 10s ease-out infinite alternate;"><div class="vcard-overlay"><div class="vcard-lbl">Schulen</div><div class="vcard-title">Bildung vor Ort</div></div></div>
+        <div class="vcard"><div style="width:100%;height:100%;background-image:url('https://i.imgur.com/0IpH9l9.jpeg');background-size:cover;background-position:center;animation:kenBurns 10s ease-out infinite alternate;"><div class="vcard-overlay"><div class="vcard-lbl">Gemeinschaft</div><div class="vcard-title">Gemeinsam wachsen</div></div></div>
+        <div class="vcard"><div style="width:100%;height:100%;background-image:url('https://i.imgur.com/fCeOVUP.jpeg');background-size:cover;background-position:center;animation:kenBurns 10s ease-out infinite alternate;"><div class="vcard-overlay"><div class="vcard-lbl">Togo</div><div class="vcard-title">Das Land · Unsere Heimat</div></div></div>
+      </div>
+    </div>
+
+    <!-- 2023 -->
+    <div class="vtab-content" id="v23">
+      <div class="vgrid">
+        <div class="vcard"><div style="width:100%;height:100%;background-image:url('https://i.imgur.com/0dq2otf.jpeg');background-size:cover;background-position:center;animation:kenBurns 10s ease-out infinite alternate;"><div class="vcard-overlay"><div class="vcard-lbl">2023</div><div class="vcard-title">Der erste Schulbesuch</div></div></div>
+        <div class="vcard"><div style="width:100%;height:100%;background-image:url('https://i.imgur.com/KMdbOkj.jpeg');background-size:cover;background-position:center;animation:kenBurns 10s ease-out infinite alternate;"><div class="vcard-overlay"><div class="vcard-lbl">2023</div><div class="vcard-title">Erste Kinder erreicht</div></div></div>
+        <div class="vcard"><div style="width:100%;height:100%;background-image:url('https://i.imgur.com/kA6EMH8.jpeg');background-size:cover;background-position:center;animation:kenBurns 10s ease-out infinite alternate;"><div class="vcard-overlay"><div class="vcard-lbl">2023</div><div class="vcard-title">Erste Schulkits</div></div></div>
+        <div class="vcard"><div style="width:100%;height:100%;background-image:url('https://i.imgur.com/IUSST7K.jpeg');background-size:cover;background-position:center;animation:kenBurns 10s ease-out infinite alternate;"><div class="vcard-overlay"><div class="vcard-lbl">2023</div><div class="vcard-title">Wachstum beginnt</div></div></div>
+        <div class="vcard"><div style="width:100%;height:100%;background-image:url('https://i.imgur.com/Vl4s847.jpeg');background-size:cover;background-position:center;animation:kenBurns 10s ease-out infinite alternate;"><div class="vcard-overlay"><div class="vcard-lbl">2023</div><div class="vcard-title">Die ersten Schulen</div></div></div>
+        <div class="vcard"><div style="width:100%;height:100%;background-image:url('https://i.imgur.com/YmDME5Y.jpeg');background-size:cover;background-position:center;animation:kenBurns 10s ease-out infinite alternate;"><div class="vcard-overlay"><div class="vcard-lbl">2023</div><div class="vcard-title">Freude und Dankbarkeit</div></div></div>
+      </div>
+    </div>
+
+    <!-- 2024 -->
+    <div class="vtab-content" id="v24">
+      <div class="vgrid">
+        <div class="vcard"><div style="width:100%;height:100%;background-image:url('https://i.imgur.com/0IpH9l9.jpeg');background-size:cover;background-position:center;animation:kenBurns 10s ease-out infinite alternate;"><div class="vcard-overlay"><div class="vcard-lbl">2024</div><div class="vcard-title">Tausende Kinder</div></div></div>
+        <div class="vcard"><div style="width:100%;height:100%;background-image:url('https://i.imgur.com/fCeOVUP.jpeg');background-size:cover;background-position:center;animation:kenBurns 10s ease-out infinite alternate;"><div class="vcard-overlay"><div class="vcard-lbl">2024</div><div class="vcard-title">Schulverteilung</div></div></div>
+        <div class="vcard"><div style="width:100%;height:100%;background-image:url('https://i.imgur.com/0dq2otf.jpeg');background-size:cover;background-position:center;animation:kenBurns 10s ease-out infinite alternate;"><div class="vcard-overlay"><div class="vcard-lbl">2024</div><div class="vcard-title">Echter Impact</div></div></div>
+      </div>
+    </div>
+
+    <!-- 2025 -->
+    <div class="vtab-content" id="v25">
+      <div class="vgrid">
+        <div class="vcard"><div style="width:100%;height:100%;background-image:url('https://i.imgur.com/KMdbOkj.jpeg');background-size:cover;background-position:center;animation:kenBurns 10s ease-out infinite alternate;"><div class="vcard-overlay"><div class="vcard-lbl">2025</div><div class="vcard-title">Autos voll Schulmaterial</div></div></div>
+        <div class="vcard"><div style="width:100%;height:100%;background-image:url('https://i.imgur.com/kA6EMH8.jpeg');background-size:cover;background-position:center;animation:kenBurns 10s ease-out infinite alternate;"><div class="vcard-overlay"><div class="vcard-lbl">2025</div><div class="vcard-title">Massenverteilung</div></div></div>
+        <div class="vcard"><div style="width:100%;height:100%;background-image:url('https://i.imgur.com/IUSST7K.jpeg');background-size:cover;background-position:center;animation:kenBurns 10s ease-out infinite alternate;"><div class="vcard-overlay"><div class="vcard-lbl">2025</div><div class="vcard-title">e.V. offiziell</div></div></div>
+        <div class="vcard"><div style="width:100%;height:100%;background-image:url('https://i.imgur.com/Vl4s847.jpeg');background-size:cover;background-position:center;animation:kenBurns 10s ease-out infinite alternate;"><div class="vcard-overlay"><div class="vcard-lbl">2025</div><div class="vcard-title">Schultaschen vor Ort</div></div></div>
+        <div class="vcard"><div style="width:100%;height:100%;background-image:url('https://i.imgur.com/YmDME5Y.jpeg');background-size:cover;background-position:center;animation:kenBurns 10s ease-out infinite alternate;"><div class="vcard-overlay"><div class="vcard-lbl">2025</div><div class="vcard-title">Unsere Vision wächst</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO GALLERY -->
+<section class="gallery" id="galerie">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="label" style="margin-bottom:12px;color:var(--terra)">Was wir vor Ort bewirken</span>
+      <h2>Echte Momente. <em style="color:var(--terra)">Echte Menschen.</em></h2>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-item reveal">
+        <img class="photo-img" src="https://res.cloudinary.com/djtsvmhxv/image/upload/v1780344901/IMG_3276_iu2la8.jpg" alt="Togo" loading="lazy">
+        <div class="photo-cap"><span>Schulverteilung · Togo</span></div>
+      </div>
+      <div class="photo-item reveal d1">
+        <img class="photo-img" src="https://res.cloudinary.com/djtsvmhxv/image/upload/v1780344887/IMG_3172_tlso2j.jpg" alt="Togo" loading="lazy">
+        <div class="photo-cap"><span>Kinder in der Schule</span></div>
+      </div>
+      <div class="photo-item reveal d2">
+        <img class="photo-img" src="https://res.cloudinary.com/djtsvmhxv/image/upload/v1780344899/IMG_4227_jizq9b.jpg" alt="Togo" loading="lazy">
+        <div class="photo-cap"><span>Spielplatz · In Erinnerung an Sebastian</span></div>
+      </div>
+      <div class="photo-item reveal d1">
+        <img class="photo-img" src="https://res.cloudinary.com/djtsvmhxv/image/upload/v1780344882/IMG_3232_kqrd3e.jpg" alt="Togo" loading="lazy">
+        <div class="photo-cap"><span>Team vor Ort</span></div>
+      </div>
+      <div class="photo-item reveal d2">
+        <img class="photo-img" src="https://res.cloudinary.com/djtsvmhxv/image/upload/v1780344886/IMG_2927_nnq1gn.jpg" alt="Togo" loading="lazy">
+        <div class="photo-cap"><span>Unsere Schulranzen</span></div>
+      </div>
+      <div class="photo-item reveal d3">
+        <img class="photo-img" src="https://res.cloudinary.com/djtsvmhxv/image/upload/v1780342157/IMG_8203_nu6gge.jpg" alt="Togo" loading="lazy">
+        <div class="photo-cap"><span>Gemeinsam für Bildung</span></div>
+      </div>
+      <div class="photo-item reveal d1">
+        <img class="photo-img" src="https://i.imgur.com/KMdbOkj.jpeg" alt="Togo" loading="lazy">
+        <div class="photo-cap"><span>Kinder · Togo</span></div>
+      </div>
+      <div class="photo-item reveal d2">
+        <img class="photo-img" src="https://i.imgur.com/kA6EMH8.jpeg" alt="Togo" loading="lazy">
+        <div class="photo-cap"><span>Bildung für Alle</span></div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- KINDERTRÄUME -->
+<section class="dreams">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center">
+      <span class="label" style="justify-content:center;margin-bottom:14px;color:var(--amber)">Kinderträume · Echte Stimmen</span>
+      <h2>Was sie werden <em>wollen.</em></h2>
+    </div>
+    <div class="dreams-grid">
+      <div class="dream-card reveal">
+        <div class="dream-vid"><img src="https://res.cloudinary.com/djtsvmhxv/image/upload/v1780345605/IMG_3137_xzskcw.jpg" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Kind Togo"><div class="dream-vid-over"></div></div>
+        <div class="dream-body"><div class="dream-icon">📚</div><p class="dream-q">„Wenn ich groß bin, möchte ich Lehrerin werden und anderen Kindern etwas beibringen."</p><div class="dream-who">Kind · Togo · Klasse 3</div></div>
+      </div>
+      <div class="dream-card reveal d2">
+        <div class="dream-vid"><img src="https://i.imgur.com/Vl4s847.jpeg" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Kind Togo"><div class="dream-vid-over"></div></div>
+        <div class="dream-body"><div class="dream-icon">🩺</div><p class="dream-q">„Wenn ich groß bin, möchte ich Arzt werden, um meine Freunde gesund zu machen."</p><div class="dream-who">Kind · Togo · Klasse 4</div></div>
+      </div>
+      <div class="dream-card reveal d3">
+        <div class="dream-vid"><img src="https://i.imgur.com/YmDME5Y.jpeg" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Kind Togo"><div class="dream-vid-over"></div></div>
+        <div class="dream-body"><div class="dream-icon">🛡️</div><p class="dream-q">„Wenn ich groß bin, werde ich Polizist und alle beschützen."</p><div class="dream-who">Kind · Togo · Klasse 2</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission">
+  <div class="wrap">
+    <div class="mission-grid">
+      <div class="mission-media reveal">
+        <div class="mission-vid-main">
+          <img src="https://i.imgur.com/KMdbOkj.jpeg" style="width:100%;height:100%;object-fit:cover;display:block;" alt="Mission">
+        </div>
+        <div class="mission-badge">
+          <span class="mission-badge-n">94%</span>
+          <span class="mission-badge-l">Direkter Impact</span>
+        </div>
+        <div class="mission-vid-small">
+          <img src="https://i.imgur.com/kA6EMH8.jpeg" alt="Team">
+        </div>
+      </div>
+      <div class="mission-text">
+        <span class="label" style="margin-bottom:14px">Wer wir sind</span>
+        <h2 class="reveal d1">Wir sind Freunde.<br>Togo ist <em>unsere Heimat.</em></h2>
+        <p class="reveal d2">Wir — Ricaux, Etienne, Luna, Annie und Charlie — sind Freunde und Familienangehörige aus Solingen.</p>
+        <p class="reveal d2">Als wir Togo besuchten und sahen, wie Kinder auf grundlegende Dinge verzichten mussten, konnten wir nicht untätig bleiben. In kürzester Zeit haben wir schon sehr viel erreicht.</p>
+        <div class="mission-quote reveal d3">
+          <p>„Wir können nicht alles ändern — aber gemeinsam einen Teil verbessern. Und das haben wir bereits getan."</p>
+          <cite>— Euer Bildung für Alle e.V. Team</cite>
+        </div>
+        <button class="btn-amber reveal d4" onclick="openModal()">❤ Teil der Veränderung werden</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center;margin-bottom:0">
+      <span class="label" style="justify-content:center;margin-bottom:14px">Unser Team</span>
+      <h2>Menschen mit <em>Herzblut.</em></h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal"><div class="team-emoji">👤</div><div class="team-body"><div class="team-name">Ricaux</div><div class="team-role">Gründer & 1. Vorsitzender</div><p class="team-q">„Ich habe Togo gesehen und wusste: Ich kann nicht nichts tun. Bildung ist das stärkste Werkzeug der Welt."</p></div></div>
+      <div class="team-card reveal d1"><div class="team-emoji">👤</div><div class="team-body"><div class="team-name">Annie Julie</div><div class="team-role">2. Vorsitzende</div><p class="team-q">„Jedes Kind verdient eine Chance — unabhängig davon, wo es geboren wurde."</p></div></div>
+      <div class="team-card reveal d2"><div class="team-emoji">👤</div><div class="team-body"><div class="team-name">Etienne</div><div class="team-role">3. Vorsitzender</div><p class="team-q">„Zusammen haben wir so viel erreicht. Das zeigt: Wenn man will, ist alles möglich."</p></div></div>
+      <div class="team-card reveal d1"><div class="team-emoji">🔨</div><div class="team-body"><div class="team-name">Charlie</div><div class="team-role">Bauherr & Projektleiter</div><p class="team-q">„Wir bauen nicht nur Schulen — wir bauen Zukunft."</p></div></div>
+      <div class="team-card reveal d2"><div class="team-emoji">💛</div><div class="team-body"><div class="team-name">Luna</div><div class="team-role">Schatzmeisterin</div><p class="team-q">„94% jedes Euros landet direkt bei den Kindern. Das ist unser Versprechen."</p></div></div>
+      <div class="team-card reveal d3"><div class="team-emoji">🇹🇬</div><div class="team-body"><div class="team-name">Dorald</div><div class="team-role">Koordinator vor Ort · Togo</div><p class="team-q">„Ich kenne die Gemeinden, die Familien, die Kinder. Ich bin ihr Mittelsmann."</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VISION 2030 -->
+<section class="vision" id="vision">
+  <div class="wrap">
+    <div class="reveal" style="text-align:center">
+      <span class="label" style="justify-content:center;margin-bottom:14px">Vision 2030</span>
+      <h2>Mehr als Hilfe.<br><em>Eine Zukunft.</em></h2>
+    </div>
+    <p class="vision-sub reveal d1">Unser großer Traum: Eine eigene Bildungseinrichtung — kostenlos für alle Kinder, unabhängig von Status und Herkunft.</p>
+    <div class="vision-grid">
+      <div class="vision-card reveal"><div class="vision-icon">🏫</div><div class="vision-title">Eigene Einrichtung</div><p class="vision-text">Eine eigene Bildungseinrichtung in Togo — kostenlos für alle Kinder.</p></div>
+      <div class="vision-card reveal d1"><div class="vision-icon">🌟</div><div class="vision-title">Talente fördern</div><p class="vision-text">Jedes Kind hat etwas Einzigartiges. Wir wollen es finden und fördern.</p></div>
+      <div class="vision-card reveal d2"><div class="vision-icon">🎒</div><div class="vision-title">Partnerschulen</div><p class="vision-text">Langfristige Kooperationen — jedes Jahr vollständig versorgt.</p></div>
+      <div class="vision-card reveal d1"><div class="vision-icon">📈</div><div class="vision-title">Tausende jährlich</div><p class="vision-text">Von 3.000 zu 10.000+ Kindern pro Jahr — systematisch und nachhaltig.</p></div>
+      <div class="vision-card reveal d2"><div class="vision-icon">🤝</div><div class="vision-title">Selbstständigkeit</div><p class="vision-text">Kindern helfen, eigenständig ihre Zukunft zu gestalten.</p></div>
+      <div class="vision-card reveal d3"><div class="vision-icon">💧</div><div class="vision-title">Infrastruktur</div><p class="vision-text">Brunnen, Spielplätze, Klassenräume — wir bauen die Grundlage.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DONATION -->
+<section class="donation" id="spenden">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:64px;" class="reveal">
+      <span class="label" style="justify-content:center;margin-bottom:16px;">Spenden</span>
+      <h2 style="color:#fff;margin-bottom:16px;">Du schenkst nicht Geld.<br><em>Du schenkst eine Zukunft.</em></h2>
+      <p style="font-family:var(--serif);font-size:17px;font-style:italic;color:rgba(255,255,255,0.55);max-width:500px;margin:0 auto;line-height:1.7;font-weight:300;">94 Cent von jedem Euro kommen direkt bei den Kindern an.</p>
+    </div>
+
+    <!-- DONATION CARDS -->
+    <div class="don-cards-grid reveal d1">
+
+      <!-- 10€ Schulkit -->
+      <div class="don-card-new" onclick="openModal()">
+        <div class="don-card-img">
+          <img src="https://res.cloudinary.com/djtsvmhxv/image/upload/v1780349565/917E2702-249F-4D86-85CE-4FAEA3A1922E_m8pc25.png" alt="Schulkit">
+          <div class="don-card-img-overlay"></div>
+          <div class="don-card-badge">10 €</div>
+        </div>
+        <div class="don-card-body">
+          <div class="don-card-tag">Schulkit</div>
+          <h3 class="don-card-title">Ein komplettes Schulkit für ein Kind.</h3>
+          <p class="don-card-sub">Damit ein Kind endlich schreiben und lernen kann.</p>
+          <button class="don-card-btn">Kind unterstützen</button>
+        </div>
+      </div>
+
+      <!-- 20€ Schulkit + Tasche -->
+      <div class="don-card-new" onclick="openModal()">
+        <div class="don-card-img">
+          <img src="https://res.cloudinary.com/djtsvmhxv/image/upload/v1780349557/E492D730-36BB-42F4-AA2C-71249F17CB3E_v6fvtl.png" alt="Schulkit und Tasche">
+          <div class="don-card-img-overlay"></div>
+          <div class="don-card-badge">20 €</div>
+        </div>
+        <div class="don-card-body">
+          <div class="don-card-tag">Kit + Tasche</div>
+          <h3 class="don-card-title">Schulkit + offizielle Bildung-für-Alle-Schultasche.</h3>
+          <p class="don-card-sub">Ein Kind startet vorbereitet ins Schuljahr.</p>
+          <button class="don-card-btn">Kind unterstützen</button>
+        </div>
+      </div>
+
+      <!-- 30€ FEATURED — Komplettpaket -->
+      <div class="don-card-new don-card-featured" onclick="openModal()">
+        <div class="don-card-featured-label">Beliebteste Wahl</div>
+        <div class="don-card-img">
+          <img src="https://res.cloudinary.com/djtsvmhxv/image/upload/v1780349561/28FEE986-E007-4FD6-8919-08343EC9DAFD_qc4jof.png" alt="Komplettpaket">
+          <div class="don-card-img-overlay"></div>
+          <div class="don-card-badge don-badge-gold">30 €</div>
+        </div>
+        <div class="don-card-body">
+          <div class="don-card-tag" style="color:var(--amber)">Komplettpaket</div>
+          <h3 class="don-card-title">Das komplette Schulstarter-Paket.</h3>
+          <p class="don-card-sub">Uniform, Tasche und Schulmaterial für ein Kind.</p>
+          <button class="don-card-btn don-btn-gold">30 € spenden</button>
+        </div>
+      </div>
+
+      <!-- 100€ Klassenzimmer -->
+      <div class="don-card-new" onclick="openModal()">
+        <div class="don-card-img">
+          <img src="https://res.cloudinary.com/djtsvmhxv/image/upload/v1780349568/7C78D8E8-6A5A-4D75-8AE6-11F89FE6485B_laxzw5.png" alt="Klassenzimmer">
+          <div class="don-card-img-overlay"></div>
+          <div class="don-card-badge">100 €</div>
+        </div>
+        <div class="don-card-body">
+          <div class="don-card-tag">Klassenzimmer</div>
+          <h3 class="don-card-title">Hilft bei der Ausstattung eines Klassenzimmers.</h3>
+          <p class="don-card-sub">Schulbänke, Tafel, Lernmaterial für eine ganze Klasse.</p>
+          <button class="don-card-btn">Jetzt helfen</button>
+        </div>
+      </div>
+
+      <!-- 500€ Spielplatz -->
+      <div class="don-card-new don-card-wide" onclick="openModal()">
+        <div class="don-card-img">
+          <img src="https://res.cloudinary.com/djtsvmhxv/image/upload/v1780349562/15316DCF-8827-48F9-8B04-1D1ABE3D336A_lgylbc.png" alt="Spielplatz">
+          <div class="don-card-img-overlay"></div>
+          <div class="don-card-badge">500 €</div>
+        </div>
+        <div class="don-card-body">
+          <div class="don-card-tag">Spielplatz & Infrastruktur</div>
+          <h3 class="don-card-title">Hilft beim Bau sicherer Lern- und Spielräume.</h3>
+          <p class="don-card-sub">Kinder brauchen nicht nur Bücher — sie brauchen einen Ort zum Wachsen.</p>
+          <button class="don-card-btn">Jetzt helfen</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- IBAN / PAYPAL -->
+    <div class="don-bottom reveal d2">
+      <div class="don-bottom-trust">
+        <span style="color:var(--green-mid)">✓</span>
+        Gemeinnützig · e.V. Solingen · Steuerlich absetzbar · 94% direkter Impact
+      </div>
+      <div class="don-bottom-btns">
+        <button class="btn-amber" onclick="openModal()">Per PayPal oder Überweisung spenden</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SATZUNG -->
+<section class="satzung" id="satzung">
+  <div class="wrap">
+    <div class="satz-inner reveal">
+      <div class="satz-left">
+        <div class="satz-icon">📄</div>
+        <div>
+          <div class="satz-title">Satzung · Bildung für Alle e.V.</div>
+          <div class="satz-desc">Solingen, 28. April 2025 · Gemeinnütziger Verein nach deutschem Recht</div>
+        </div>
+      </div>
+      <a href="#" class="btn-amber" id="satzBtn" style="flex-shrink:0">📥 Satzung herunterladen</a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="wrap">
+    <div class="final-cta-inner reveal">
+      <span class="label" style="justify-content:center;margin-bottom:16px;color:rgba(255,255,255,0.7)">Jetzt handeln</span>
+      <h2>Bildung verändert <em>alles.</em></h2>
+      <p>Klein anfangen — Großes bewirken. Jede Spende zählt.</p>
+      <div class="final-cta-btns">
+        <button class="btn-white" onclick="openModal()">❤ Jetzt spenden</button>
+        <a href="https://www.instagram.com/bildungfueralle.ev" target="_blank" class="btn-ghost-amber">📸 Instagram</a>
+        <a href="https://www.tiktok.com/@bildungfueralle_ev" target="_blank" class="btn-ghost-amber">🎵 TikTok</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<!-- TIKTOK -->
+<section style="background:var(--black);padding:80px 0;border-top:1px solid rgba(74,124,89,0.15);">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:48px;" class="reveal">
+      <span class="label" style="justify-content:center;margin-bottom:14px;color:var(--amber)">Folgt uns auf TikTok</span>
+      <h2 style="color:var(--warm-white);">Echte Videos.<br><em style="color:var(--amber)">Echte Momente.</em></h2>
+      <p style="font-family:var(--serif);font-size:17px;font-style:italic;color:rgba(255,255,255,0.5);margin-top:12px;font-weight:300;">@bildungfueralle_ev</p>
+    </div>
+    <div style="display:flex;justify-content:center;" class="reveal d2">
+      <blockquote
+        class="tiktok-embed"
+        cite="https://www.tiktok.com/@bildungfueralle_ev"
+        data-unique-id="bildungfueralle_ev"
+        data-embed-type="creator"
+        style="max-width:780px;min-width:288px;border:none;">
+        <section>
+          <a target="_blank" href="https://www.tiktok.com/@bildungfueralle_ev">@bildungfueralle_ev</a>
+        </section>
+      </blockquote>
+    </div>
+    <div style="text-align:center;margin-top:32px;" class="reveal d3">
+      <a href="https://www.tiktok.com/@bildungfueralle_ev" target="_blank" class="btn-amber">
+        🎵 TikTok Profil besuchen
+      </a>
+    </div>
+  </div>
+</section>
+<script async src="https://www.tiktok.com/embed.js"></script>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+            <path d="M4 26C4 26 12 22 20 24C28 22 36 26 36 26L36 34C36 34 28 30 20 32C12 30 4 34 4 34Z" fill="#6B9E7A" stroke="#C8E6D0" stroke-width="0.8"/>
+            <rect x="13" y="14" width="14" height="10" rx="1" fill="#D4823E" stroke="#F9E4B7" stroke-width="0.8"/>
+            <rect x="15" y="7" width="10" height="8" rx="1" fill="none" stroke="#F9E4B7" stroke-width="1"/>
+            <line x1="12" y1="7" x2="28" y2="7" stroke="#F9E4B7" stroke-width="1"/>
+            <ellipse cx="20" cy="12" rx="2" ry="2.5" fill="#6B9E7A"/>
+          </svg>
+          <div>
+            <div style="font-family:var(--serif);font-size:15px;font-weight:500;color:rgba(255,255,255,0.7);">Bildung für Alle</div>
+            <div style="font-size:9px;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);margin-top:2px;">e.V. · Solingen</div>
+          </div>
+        </div>
+        <p class="footer-tagline">Gemeinsam verändern wir das Leben von Kindern in Togo.</p>
+        <div class="footer-soc">
+          <a href="https://www.instagram.com/bildungfueralle.ev" target="_blank">IG</a>
+          <a href="https://www.tiktok.com/@bildungfueralle_ev" target="_blank">TK</a>
+          <a href="mailto:bildungfa@gmail.com">✉</a>
+        </div>
+      </div>
+      <div class="fc"><div class="fc-title">Organisation</div><ul><li><a href="#mission">Über uns</a></li><li><a href="#team">Team</a></li><li><a href="#satzung">Satzung</a></li><li><a href="mailto:bildungfa@gmail.com">Kontakt</a></li></ul></div>
+      <div class="fc"><div class="fc-title">Inhalte</div><ul><li><a href="#geschichte">Geschichte</a></li><li><a href="#videos">Videos</a></li><li><a href="#galerie">Galerie</a></li><li><a href="#vision">Vision 2030</a></li></ul></div>
+      <div class="fc"><div class="fc-title">Mitmachen</div><ul><li><a href="#spenden">Spenden</a></li><li><a href="https://www.instagram.com/bildungfueralle.ev" target="_blank">Instagram</a></li><li><a href="https://www.tiktok.com/@bildungfueralle_ev" target="_blank">TikTok</a></li><li><a href="mailto:bildungfa@gmail.com">Kontakt</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-legal">© 2025 Bildung für Alle e.V. · Solingen · Alle Rechte vorbehalten</span>
+      <div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#satzung">Satzung</a></div>
+    </div>
+    <p class="footer-reg">Gemeinnütziger Verein · Sitz: Solingen, NRW · e.V. seit 28.04.2025 · IBAN: DE31 3425 0000 1000 1133 14 · Sparkasse Solingen</p>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeModal()">×</button>
+    <h3>Jetzt spenden ❤</h3>
+    <p style="font-size:13px;color:var(--text-light);margin-bottom:20px;font-weight:300;">Wähle deine Zahlungsmethode:</p>
+    <div class="iban-block">
+      <div class="iban-lbl">Banküberweisung · Sparkasse Solingen</div>
+      <div class="iban-num">DE31 3425 0000 1000 1133 14</div>
+      <div class="iban-who">Bildung für Alle e.V.</div>
+      <button class="copy-btn" id="copyBtn" onclick="copyIban()">📋 IBAN kopieren</button>
+    </div>
+    <div class="pp-block">
+      <div style="font-size:10px;opacity:0.7;margin-bottom:4px;letter-spacing:0.1em;text-transform:uppercase;">PayPal Benutzername</div>
+      <div>@BildungfürAllee.v</div>
+    </div>
+    <div class="modal-trust">
+      ✓ Zuwendungsbescheinigung auf Anfrage · steuerlich absetzbar<br>
+      <a href="mailto:bildungfa@gmail.com" style="color:var(--green);font-weight:600">bildungfa@gmail.com</a>
+    </div>
+  </div>
+</div>
+
+<script>
+// NAV
+var nav=document.getElementById('nav');
+window.addEventListener('scroll',function(){nav.classList.toggle('solid',window.scrollY>80);},{passive:true});
+
+// SCROLL REVEAL
+var ro=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('up');ro.unobserve(x.target);}});},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
+
+// COUNTER
+function count(el,to,suf){
+  var s=performance.now(),d=1800;
+  (function tick(n){var p=Math.min((n-s)/d,1),e=1-Math.pow(1-p,3),v=Math.floor(e*to);el.textContent=(to>=1000?v.toLocaleString('de-DE'):v)+(suf||'');if(p<1)requestAnimationFrame(tick);})(performance.now());
+}
+var co=new IntersectionObserver(function(e){if(e[0].isIntersecting){document.querySelectorAll('.in-n').forEach(function(el){count(el,+el.dataset.t,el.dataset.s||'');});co.disconnect();}},{threshold:0.3});
+var is=document.querySelector('.impact-numbers');if(is)co.observe(is);
+
+// TABS
+function vtab(id){
+  document.querySelectorAll('.vtab-content').forEach(function(t){t.classList.remove('on');});
+  document.querySelectorAll('.vtab-btn').forEach(function(b){b.classList.remove('on');});
+  document.getElementById(id).classList.add('on');
+  event.currentTarget.classList.add('on');
+}
+
+// AMOUNTS
+function pickAmt(btn){document.querySelectorAll('.amt').forEach(function(b){b.classList.remove('sel');});btn.classList.add('sel');}
+
+// MODAL
+function openModal(){document.getElementById('modalBg').classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(){document.getElementById('modalBg').classList.remove('open');document.body.style.overflow='';}
+document.getElementById('modalBg').addEventListener('click',function(e){if(e.target===this)closeModal();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+
+// IBAN
+function copyIban(){navigator.clipboard.writeText('DE31342500001000113314').then(function(){var b=document.getElementById('copyBtn');b.textContent='✓ Kopiert!';setTimeout(function(){b.textContent='📋 IBAN kopieren';},2000);});}
+
+// SATZUNG
+var sBlob=new Blob(['SATZUNG BILDUNG FÜR ALLE e.V.\nSolingen, 28.04.2025\n\n§1 Name: Bildung für Alle e.V., Solingen NRW\n§2 Zweck: Förderung von Bildung in Westafrika\n§6 Vorstand:\n1. Vorsitzender: Ricaux\n2. Vorsitzende: Annie Julie\n3. Vorsitzender: Etienne\nSchatzmeisterin: Luna · Bauherr: Charlie'],{type:'text/plain'});
+var sb=document.getElementById('satzBtn');
+sb.href=URL.createObjectURL(sBlob);
+sb.download='Satzung_Bildung_fuer_Alle_eV.txt';
+sb.addEventListener('click',function(e){e.stopPropagation();});
+</script>
+</body>
+</html>
